@@ -1,4 +1,6 @@
-package linkedlist
+package main
+
+import "fmt"
 
 func (ll *LinkedList) AddNode(num int) {
 	newNode := Node{
@@ -60,6 +62,6 @@ func AddNodeAtIndexRec(head *Node, num, index int) *Node {
 		return head
 	}
 
-	head.next = AddNodeAtIndexRec(head.next, num, i-1)
+	head.next = AddNodeAtIndexRec(head.next, num, index-1)
 	return head
 }
