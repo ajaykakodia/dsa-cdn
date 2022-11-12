@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type LinkedList struct {
 	head *Node
 }
@@ -23,17 +21,4 @@ func (ll *LinkedList) Length() int {
 		count++
 	}
 	return count
-}
-
-func (ll *LinkedList) Print() {
-	if ll.head == nil {
-		fmt.Println("No node for print")
-		return
-	}
-	currentNode := ll.head
-	for currentNode != nil {
-		fmt.Printf("%d -> ", currentNode.data)
-		currentNode = currentNode.next
-	}
-	fmt.Println("none")
 }
