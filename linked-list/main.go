@@ -46,4 +46,44 @@ func main() {
 	fmt.Println("Reverse 4")
 	ll.head = reverseLinkedListRec3(ll.head)
 	ll.print()
+	midNode := ll.midPoint()
+	fmt.Printf("Node at mid %v\n", midNode)
+	ll.deleteNode(2)
+	ll.print()
+	midNode = ll.midPoint()
+	fmt.Printf("Node at mid %v\n", midNode)
+
+	fmt.Println("Merge Sort")
+
+	ll.head = mergeSort(ll.head)
+	ll.print()
+
+	fmt.Println("========================================================")
+
+	// Uncomment below line to take sorted inputs and merge linked list
+
+	// fmt.Println("Entered first sorted list elements")
+	// ll1 := NewLinkedList()
+	// llItems, _ = in.ReadString('\n')
+	// for _, val := range strings.Fields(llItems) {
+	// 	data, err := strconv.Atoi(val)
+	// 	if err == nil {
+	// 		ll1.addNode(data)
+	// 	}
+	// }
+	// ll1.print()
+
+	// fmt.Println("Entered first sorted list elements")
+	// ll2 := NewLinkedList()
+	// llItems, _ = in.ReadString('\n')
+	// for _, val := range strings.Fields(llItems) {
+	// 	data, err := strconv.Atoi(val)
+	// 	if err == nil {
+	// 		ll2.addNode(data)
+	// 	}
+	// }
+	// ll2.print()
+
+	// ll.head = mergeTwoLinkedList(ll1.head, ll2.head)
+	// ll.print()
 }
