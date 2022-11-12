@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func (ll *LinkedList) Print() {
+// print => Print all node of linked list
+func (ll *LinkedList) print() {
 	if ll.head == nil {
 		fmt.Println("No node for print")
 		return
@@ -15,7 +16,8 @@ func (ll *LinkedList) Print() {
 	fmt.Println("none")
 }
 
-func (ll *LinkedList) PrintParticularNode(index int) {
+// printParticularNode => Print a particular node of linked list
+func (ll *LinkedList) printParticularNode(index int) {
 	i := 0
 	cn := ll.head
 	for cn != nil {

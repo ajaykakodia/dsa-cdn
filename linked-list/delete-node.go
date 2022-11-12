@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Delete Node Iterative
-func (ll *LinkedList) DeleteNode(index int) {
+// deleteNode => Delete ode Iterative
+func (ll *LinkedList) deleteNode(index int) {
 	if index == 0 {
 		ll.head = ll.head.next
 		return
@@ -21,7 +21,7 @@ func (ll *LinkedList) DeleteNode(index int) {
 	cn.next = cn.next.next
 }
 
-// Delete Node by Recursion way
+// deleteNodeRec => Delete Node by Recursion wa
 func deleteNodeRec(head *Node, index int) *Node {
 	if head == nil {
 		return nil

@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-func (ll *LinkedList) AddNode(num int) {
+// addNode => Add new node at last Node of list
+func (ll *LinkedList) addNode(num int) {
 	newNode := Node{
 		data: num,
 	}
@@ -17,9 +18,10 @@ func (ll *LinkedList) AddNode(num int) {
 	currentNode.next = &newNode
 }
 
-func (ll *LinkedList) AddNodeAtIndex(num, index int) {
+// addNodeAtIndex=> add node at particular index
+func (ll *LinkedList) addNodeAtIndex(num, index int) {
 	if index < 0 {
-		fmt.Println("Please provide index greated than or equal to 0")
+		fmt.Println("Please provide index greater than or equal to 0")
 		return
 	}
 	newNode := Node{
@@ -48,7 +50,8 @@ func (ll *LinkedList) AddNodeAtIndex(num, index int) {
 	previousNode.next = &newNode
 }
 
-func AddNodeAtIndexRec(head *Node, num, index int) *Node {
+// addNodeAtIndexRec=> add node at particular index
+func addNodeAtIndexRec(head *Node, num, index int) *Node {
 	if index == 0 {
 		newNode := Node{
 			data: num,
@@ -62,6 +65,6 @@ func AddNodeAtIndexRec(head *Node, num, index int) *Node {
 		return head
 	}
 
-	head.next = AddNodeAtIndexRec(head.next, num, index-1)
+	head.next = addNodeAtIndexRec(head.next, num, index-1)
 	return head
 }
