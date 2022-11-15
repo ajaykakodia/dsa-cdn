@@ -20,7 +20,7 @@ func (s *IStack) Pop() int {
 	return ele
 }
 
-func (s *IStack) Top(data int) int {
+func (s *IStack) Top() int {
 	if s.IsEmpty() {
 		fmt.Println("Stack is Empty!")
 		return -1

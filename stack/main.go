@@ -23,6 +23,16 @@ func main() {
 	for !stack.IsEmpty() {
 		fmt.Println(stack.Pop())
 	}
+	fmt.Println("Queue with two stack....")
+	iq := queue{}
+	iq.Enqueue(2)
+	iq.Enqueue(5)
+	iq.Enqueue(10)
+
+	for !iq.IsEmpty() {
+		fmt.Println(iq.Dequeue())
+	}
+	iq.Dequeue()
 
 	//fmt.Println("Size of stack - ", stack.Size())
 	//stack.Push(10)
