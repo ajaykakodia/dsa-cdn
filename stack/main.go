@@ -3,9 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Parantheseis Balanced ", BalancedParathesis("[a+b +(a+j)]"))
-	fmt.Println("Parantheseis Balanced ", BalancedParathesis("[a+b +(a+j])"))
-	fmt.Println("Parantheseis Balanced ", BalancedParathesis("[a+b +(a+j)"))
+	fmt.Println("Parenthesis Balanced ", BalancedParenthesis("[a+b +(a+j)]"))
+	fmt.Println("Parenthesis Balanced ", BalancedParenthesis("[a+b +(a+j])"))
+	fmt.Println("Parenthesis Balanced ", BalancedParenthesis("[a+b +(a+j)"))
+
+	fmt.Println("Redundant Balanced ", RedundantParenthesis("[a+b +(a+j)]"))
+	fmt.Println("Redundant Balanced ", RedundantParenthesis("((a+b))"))
+	fmt.Println("Redundant Balanced ", RedundantParenthesis("[a+{b +(a+j)}]"))
 
 	stack := new(IStack)
 	stack.Push(2)
@@ -19,7 +23,7 @@ func main() {
 	for !stack.IsEmpty() {
 		fmt.Println(stack.Pop())
 	}
-	
+
 	//fmt.Println("Size of stack - ", stack.Size())
 	//stack.Push(10)
 	//
