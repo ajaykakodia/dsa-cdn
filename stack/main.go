@@ -49,6 +49,12 @@ func main() {
 		fmt.Println(minBracketReversal, " reversal required")
 	}
 
+	fmt.Println("Stock Span Problem... ")
+
+	stockSpanB([]int{5, 3, 8, 7, 7, 4, 10, 12, 16})
+	stockSpan([]int{5, 3, 8, 7, 7, 4, 10, 12, 16})
+	stockSpan([]int{5, 3, 8, 7, 7, 20, 10, 12, 16})
+
 	//fmt.Println("Size of stack - ", stack.Size())
 	//stack.Push(10)
 	//
