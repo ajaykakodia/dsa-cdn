@@ -34,6 +34,21 @@ func main() {
 	}
 	iq.Dequeue()
 
+	minBracketReversal := minimumBracketReversal("}}{{{}{{{{")
+	if minBracketReversal == -1 {
+		fmt.Println("Brackets are not reversible")
+	} else {
+		fmt.Println(minBracketReversal, " reversal required")
+	}
+	fmt.Println("reversible method 2")
+
+	minBracketReversal = minimumBracketReversal1("}}{{{}{{{{")
+	if minBracketReversal == -1 {
+		fmt.Println("Brackets are not reversible")
+	} else {
+		fmt.Println(minBracketReversal, " reversal required")
+	}
+
 	//fmt.Println("Size of stack - ", stack.Size())
 	//stack.Push(10)
 	//

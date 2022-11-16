@@ -9,7 +9,7 @@ type Node struct {
 
 type SStack struct {
 	head  *Node
-	count uint
+	count int
 }
 
 func (s *SStack) Push(data string) {
@@ -18,6 +18,7 @@ func (s *SStack) Push(data string) {
 	}
 	newNode.next = s.head
 	s.head = &newNode
+	s.count++
 }
 
 func (s *SStack) Pop() string {
@@ -27,6 +28,7 @@ func (s *SStack) Pop() string {
 	}
 	data := s.head.data
 	s.head = s.head.next
+	s.count--
 	return data
 }
 
@@ -42,6 +44,6 @@ func (s *SStack) IsEmpty() bool {
 	return s.head == nil
 }
 
-func (s *SStack) Size() uint {
+func (s *SStack) Size() int {
 	return s.count
 }
