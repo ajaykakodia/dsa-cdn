@@ -41,3 +41,25 @@ func (bn *BinaryTree) Print() {
 	lbTree.Print()
 	rbTree.Print()
 }
+
+func (bn *BinaryTree) PostOrderPrint() {
+	if bn.root == nil {
+		return
+	}
+	lbTree := NewBinaryTree(bn.root.leftChild)
+	rbTree := NewBinaryTree(bn.root.rightChild)
+	lbTree.Print()
+	rbTree.Print()
+	bn.root.Print()
+}
+
+func (bn *BinaryTree) InOrderPrint() {
+	if bn.root == nil {
+		return
+	}
+	lbTree := NewBinaryTree(bn.root.leftChild)
+	rbTree := NewBinaryTree(bn.root.rightChild)
+	lbTree.Print()
+	bn.root.Print()
+	rbTree.Print()
+}
