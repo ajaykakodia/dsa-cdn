@@ -1,5 +1,7 @@
 package main
 
+import "math"
+
 func countTotalNode(root *Node) int {
 	if root == nil {
 		return 0
@@ -21,4 +23,23 @@ func countLeafNode(root *Node) int {
 	rcLeafCount := countLeafNode(root.rightChild)
 
 	return lcLeafCount + rcLeafCount
+}
+
+func getHeight(root *Node) int {
+	if root == nil {
+		return 0
+	}
+	lcHeight := getHeight(root.leftChild)
+	rcHeight := getHeight(root.rightChild)
+	return 1 + int(math.Max(float64(lcHeight), float64(rcHeight)))
+}
+
+func getMaxNodeInTree(root *Node) int {
+	if root == nil {
+		return 0
+	}
+	lcHeight := getMaxNodeInTree(root.leftChild)
+	rcHeight := getMaxNodeInTree(root.rightChild)
+
+	return int(math.Max(float64(root.data), math.Max(float64(lcHeight), float64(rcHeight))))
 }

@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var countPopulatedData int = 0
+
 func createBinaryTreeByInput() *Node {
 	var nodeData string
 	fmt.Scanln(&nodeData)
@@ -20,50 +22,31 @@ func createBinaryTreeByInput() *Node {
 }
 
 func createBinaryTree() *Node {
-	var nodeData string = "5 2 6 8 -1 -1 -1 7 -1 -1 3 -1 -1"
+	var nodeData string = "5 2 6 8 -1 -1 -1 10 -1 -1 3 9 -1 -1 11 -1 -1"
 	rootNode := &Node{}
 	dataToPopulate := []int{}
 	for _, val := range strings.Fields(nodeData) {
 		data, _ := strconv.Atoi(val)
 		dataToPopulate = append(dataToPopulate, data)
 	}
-	rootNode = populateData1(dataToPopulate)
+	countPopulatedData = 0
+	rootNode = populateData(dataToPopulate)
 	return rootNode
 }
 
-// TODO fixing required
-func populateData1(arr []int) *Node {
-	if len(arr) == 0 || arr[0] == -1 {
+func populateData(arr []int) *Node {
+	if countPopulatedData >= len(arr) {
 		return nil
 	}
 
-	node := NewNode(arr[0])
-	node.leftChild = populateData1(arr[1:])
-	if node.leftChild == nil {
-
+	if arr[countPopulatedData] == -1 {
+		return nil
 	}
-	node.rightChild = populateData1(arr[2:])
+
+	node := NewNode(arr[countPopulatedData])
+	countPopulatedData++
+	node.leftChild = populateData(arr)
+	countPopulatedData++
+	node.rightChild = populateData(arr)
 	return node
-}
-
-// TODO fixing required
-func populateData(arr []int, root *Node) []int {
-	if len(arr) == 0 {
-		root = nil
-		return nil
-	}
-	if arr[0] == -1 {
-		root = nil
-		return arr[1:]
-	}
-	root.data = arr[0]
-	root.leftChild = &Node{}
-	root.rightChild = &Node{}
-	if len(arr) > 1 {
-		arr = populateData(arr[1:], root.leftChild)
-	}
-	if len(arr) > 1 {
-		arr = populateData(arr[1:], root.rightChild)
-	}
-	return arr
 }

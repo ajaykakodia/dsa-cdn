@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	bTree := NewBinaryTree(nil)
-	bTree.root = createBinaryTreeByInput()
+	bTree.root = createBinaryTree()
 	fmt.Println("PreOrder Traversal")
 	PreOrderTraversal(bTree.root)
 	fmt.Println("PostOrder Traversal")
@@ -13,4 +13,12 @@ func main() {
 	InOrderTraversal(bTree.root)
 	fmt.Println("Total Node Count: ", countTotalNode(bTree.root))
 	fmt.Println("Total Leaf Node: ", countLeafNode(bTree.root))
+	fmt.Println("Height of Tree: ", getHeight(bTree.root))
+	fmt.Println("Max Node of Tree: ", getMaxNodeInTree(bTree.root))
+	fmt.Print("Nodes at level 2: ")
+	printKthLevel(bTree.root, 2)
+	fmt.Println()
+	fmt.Print("Nodes at level 3: ")
+	printKthLevel1(bTree.root, 3, 0)
+	fmt.Println()
 }
