@@ -32,4 +32,9 @@ func main() {
 	bTree.Print()
 	balanced, _ = isTreeBalanced(bTree.root)
 	fmt.Println("Is current tree is balanced: ", balanced)
+
+	bTree.root = createBinaryTree3()
+	bTree.Print()
+	height, dia := getDiameterOfTree(bTree.root)
+	fmt.Println("Height of tree ", height, " & Diameter of tree :", dia)
 }

@@ -62,6 +62,20 @@ func createBinaryTree2() *Node {
 	return rootNode
 }
 
+// createBinaryTree1 => create an unbalanced tree
+func createBinaryTree3() *Node {
+	var nodeData string = "3 2 1 8 11 -1 -1 -1 10 -1 -1 5 15 -1 -1 6 -1 19 -1 -1 4 -1 -1"
+	rootNode := &Node{}
+	dataToPopulate := []int{}
+	for _, val := range strings.Fields(nodeData) {
+		data, _ := strconv.Atoi(val)
+		dataToPopulate = append(dataToPopulate, data)
+	}
+	countPopulatedData = 0
+	rootNode = populateData(dataToPopulate)
+	return rootNode
+}
+
 func populateData(arr []int) *Node {
 	if countPopulatedData >= len(arr) {
 		return nil
