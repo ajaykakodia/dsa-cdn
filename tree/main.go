@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	bTree := NewBinaryTree(nil)
@@ -50,4 +53,32 @@ func main() {
 	fmt.Println("In Order & Post Order Process")
 	bTree.root = processInOrderPostOrderForBinaryTree(inOrder, postOrder)
 	bTree.LevelWisePrint()
+
+	bTree.root = createBinarySearchTree()
+	// bTree.LevelWisePrint()
+	fmt.Println("28 exits in BST: ", bstSearch(bTree.root, 28))
+	fmt.Println("18 exits in BST: ", bstSearch(bTree.root, 18))
+	fmt.Println("7 exits in BST: ", bstSearch(bTree.root, 7))
+	fmt.Println("Print in range => 3 & 30")
+	bstPrintElementInRange(bTree.root, 3, 30)
+	fmt.Println()
+	fmt.Println("IsTreeBST method")
+	fmt.Println("Is current Tree is Binary Search Tree: ", isTreeBST(bTree.root))
+	bTree.root = createBinarySearchTree2()
+	fmt.Println("Is current Tree is Binary Search Tree: ", isTreeBST(bTree.root))
+
+	fmt.Println("IsTreeBST2 method")
+	bTree.root = createBinarySearchTree()
+	_, _, result := isTreeBST2(bTree.root)
+	fmt.Println("Is current Tree is Binary Search Tree: ", result)
+	bTree.root = createBinarySearchTree2()
+	_, _, result = isTreeBST2(bTree.root)
+	fmt.Println("Is current Tree is Binary Search Tree: ", result)
+
+	fmt.Println("IsTreeBST3 method")
+	bTree.root = createBinarySearchTree()
+	fmt.Println("Is current Tree is Binary Search Tree: ", isTreeBST3(bTree.root, math.MinInt, math.MaxInt))
+	bTree.root = createBinarySearchTree2()
+	fmt.Println("Is current Tree is Binary Search Tree: ", isTreeBST3(bTree.root, math.MinInt, math.MaxInt))
+
 }
