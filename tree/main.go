@@ -38,6 +38,16 @@ func main() {
 	height, dia := getDiameterOfTree(bTree.root)
 	fmt.Println("Height of tree ", height, " & Diameter of tree :", dia)
 
-	bTree.root = createBinaryTreeLevelWiseInput()
+	//bTree.root = createBinaryTreeLevelWiseInput()
+	//bTree.LevelWisePrint()
+	inOrder := []int{8, 1, 10, 2, 15, 5, 6, 19, 3, 4}
+	preOrder := []int{3, 2, 1, 8, 10, 5, 15, 6, 19, 4}
+	fmt.Println("In Order & Pre Order Process")
+	bTree.root = processInOrderPreOrderForBinaryTree(inOrder, preOrder)
+	bTree.LevelWisePrint()
+
+	postOrder := []int{8, 10, 1, 15, 19, 6, 5, 2, 4, 3}
+	fmt.Println("In Order & Post Order Process")
+	bTree.root = processInOrderPostOrderForBinaryTree(inOrder, postOrder)
 	bTree.LevelWisePrint()
 }
