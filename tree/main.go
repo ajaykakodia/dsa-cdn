@@ -37,4 +37,7 @@ func main() {
 	bTree.Print()
 	height, dia := getDiameterOfTree(bTree.root)
 	fmt.Println("Height of tree ", height, " & Diameter of tree :", dia)
+
+	bTree.root = createBinaryTreeLevelWiseInput()
+	bTree.LevelWisePrint()
 }

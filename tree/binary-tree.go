@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/ajaykakodia/lib/queue"
+)
 
 type BinaryTree struct {
 	root *Node
@@ -62,4 +65,22 @@ func (bn *BinaryTree) InOrderPrint() {
 	lbTree.Print()
 	bn.root.Print()
 	rbTree.Print()
+}
+
+func (bn *BinaryTree) LevelWisePrint() {
+	if bn.root == nil {
+		return
+	}
+	que := queue.GQueue{}
+	que.Enqueue(bn.root)
+	for !que.IsEmpty() {
+		ele := que.Dequeue().(*Node)
+		ele.Print()
+		if ele.leftChild != nil {
+			que.Enqueue(ele.leftChild)
+		}
+		if ele.rightChild != nil {
+			que.Enqueue(ele.rightChild)
+		}
+	}
 }

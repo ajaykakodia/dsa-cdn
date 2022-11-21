@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/ajaykakodia/lib/queue"
 	"strconv"
 	"strings"
 )
@@ -91,4 +92,45 @@ func populateData(arr []int) *Node {
 	countPopulatedData++
 	node.rightChild = populateData(arr)
 	return node
+}
+
+func createBinaryTreeLevelWiseInput() *Node {
+	que := queue.GQueue{}
+	fmt.Println("Please enter interger values and if want nil for any data enter -1")
+	fmt.Println("Enter Root Element: ")
+	var (
+		sData   string
+		newNode *Node
+	)
+
+	fmt.Scanln(&sData)
+
+	data, err := strconv.Atoi(sData)
+	if err != nil || data == -1 {
+		return nil
+	}
+	rootNode := NewNode(data)
+	que.Enqueue(rootNode)
+
+	for !que.IsEmpty() {
+		ele := (que.Dequeue().(*Node))
+		fmt.Println("Enter left child of ", ele.data)
+		fmt.Scanln(&sData)
+		data, err = strconv.Atoi(sData)
+		if err == nil && data != -1 {
+			newNode = NewNode(data)
+			ele.leftChild = newNode
+			que.Enqueue(newNode)
+		}
+		fmt.Println("Enter right child of ", ele.data)
+		fmt.Scanln(&sData)
+		data, err = strconv.Atoi(sData)
+		if err == nil && data != -1 {
+			newNode = NewNode(data)
+			ele.rightChild = newNode
+			que.Enqueue(newNode)
+		}
+	}
+
+	return rootNode
 }
