@@ -23,3 +23,26 @@ func printKthLevel1(root *Node, level, currentHeight int) {
 	printKthLevel1(root.leftChild, level, currentHeight+1)
 	printKthLevel1(root.rightChild, level, currentHeight+1)
 }
+
+func printNodeToRootPath(root *Node, data int) []int {
+	if root == nil {
+		return nil
+	}
+	if root.data == data {
+		return []int{root.data}
+	}
+
+	leftTreeMatch := printNodeToRootPath(root.leftChild, data)
+	if leftTreeMatch != nil {
+		leftTreeMatch = append(leftTreeMatch, root.data)
+		return leftTreeMatch
+	}
+
+	rightTreeMatch := printNodeToRootPath(root.rightChild, data)
+	if rightTreeMatch != nil {
+		rightTreeMatch = append(rightTreeMatch, root.data)
+		return rightTreeMatch
+	}
+
+	return nil
+}

@@ -54,6 +54,12 @@ func main() {
 	bTree.root = processInOrderPostOrderForBinaryTree(inOrder, postOrder)
 	bTree.LevelWisePrint()
 
+	paths := printNodeToRootPath(bTree.root, 5)
+	fmt.Println("Path to leaf 5: ", paths)
+
+	paths = printNodeToRootPath(bTree.root, 19)
+	fmt.Println("Path to leaf 19: ", paths)
+
 	bTree.root = createBinarySearchTree()
 	// bTree.LevelWisePrint()
 	fmt.Println("28 exits in BST: ", bstSearch(bTree.root, 28))
