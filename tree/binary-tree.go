@@ -34,6 +34,10 @@ func (n *Node) Print() {
 	fmt.Println()
 }
 
+func (n *Node) IsLeaf() bool {
+	return n == nil || (n.leftChild == nil && n.rightChild == nil)
+}
+
 func (bn *BinaryTree) Print() {
 	if bn.root == nil {
 		return
