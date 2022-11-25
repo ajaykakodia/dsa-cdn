@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	queue2 "github.com/ajaykakodia/lib/queue"
+	queue "github.com/ajaykakodia/lib/queue"
 )
 
 func createGenericTree(child *int) *GNode {
@@ -34,7 +34,7 @@ func createGenericTreeLevelWise() *GNode {
 	fmt.Println("Please enter root data: ")
 
 	var data, numChild int
-	var que queue2.GQueue
+	var que queue.GQueue
 
 	_, err := fmt.Scanln(&data)
 	if err != nil || data == -1 {
