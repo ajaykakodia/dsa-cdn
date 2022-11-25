@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	queue2 "github.com/ajaykakodia/lib/queue"
+)
 
 func createGenericTree(child *int) *GNode {
 	if child == nil {
@@ -24,5 +27,39 @@ func createGenericTree(child *int) *GNode {
 			numChild--
 		}
 	}
+	return root
+}
+
+func createGenericTreeLevelWise() *GNode {
+	fmt.Println("Please enter root data: ")
+
+	var data, numChild int
+	var que queue2.GQueue
+
+	_, err := fmt.Scanln(&data)
+	if err != nil || data == -1 {
+		return nil
+	}
+	root := NewGNode(data)
+	que.Enqueue(root)
+
+	for !que.IsEmpty() {
+		node := que.Dequeue().(*GNode)
+		fmt.Println("Please enter no of child for ", node.data)
+		_, err = fmt.Scanln(&numChild)
+		if err == nil {
+			for numChild > 0 {
+				fmt.Println("Please enter child for ", node.data)
+				_, err := fmt.Scanln(&data)
+				if err == nil {
+					childNode := NewGNode(data)
+					node.children = append(node.children, childNode)
+					que.Enqueue(childNode)
+				}
+				numChild--
+			}
+		}
+	}
+
 	return root
 }

@@ -120,4 +120,9 @@ func main() {
 	gTree.Print()
 	fmt.Println("Number of Nodes in current generic tree: ", gTree.NumberOfNodes())
 	fmt.Println("Height of current generic tree: ", gTree.Height())
+
+	gTree.root = createGenericTreeLevelWise()
+	gTree.Print()
+	fmt.Println("Number of Nodes in current generic tree: ", gTree.NumberOfNodes())
+	fmt.Println("Height of current generic tree: ", gTree.Height())
 }
