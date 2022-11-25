@@ -21,11 +21,13 @@ func (bst *BinarySearchTree) IsPresent(data int) bool {
 
 func (bst *BinarySearchTree) Insert(data int) {
 	bst.root = insertNodeBST(bst.root, data)
+	bst.numCount++
 }
 
 func (bst *BinarySearchTree) Delete(data int) bool {
 	isDeleted, newRoot := deleteNodeBST(bst.root, data)
 	if isDeleted {
+		bst.numCount--
 		bst.root = newRoot
 	}
 	return isDeleted

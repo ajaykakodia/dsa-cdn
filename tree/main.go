@@ -114,4 +114,10 @@ func main() {
 	fmt.Println("Deleted 10 from BST: ", bsTree.Delete(10))
 	bsTree.Print()
 
+	fmt.Println("================================= Generic Tree =====================================")
+	gTree := NewGenericTree()
+	gTree.root = createGenericTree(nil)
+	gTree.Print()
+	fmt.Println("Number of Nodes in current generic tree: ", gTree.NumberOfNodes())
+	fmt.Println("Height of current generic tree: ", gTree.Height())
 }
