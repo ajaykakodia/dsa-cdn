@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"hash/fnv"
 )
 
@@ -23,6 +24,14 @@ func NewMap(size int) *HMap {
 	}
 }
 
+func (m *HMap) IsEmpty() bool {
+	return m.count == 0
+}
+
+func (m *HMap) Size() int {
+	return m.count
+}
+
 func (m *HMap) Insert(key, value string) {
 	hCode := getHash(key)
 
@@ -35,6 +44,7 @@ func (m *HMap) Insert(key, value string) {
 			head.value = value
 			return
 		}
+		head = head.next
 	}
 
 	newMapNode := &MapNode{
@@ -44,6 +54,31 @@ func (m *HMap) Insert(key, value string) {
 	}
 
 	m.bucketArr[indexToStore] = newMapNode
+
+	m.count = m.count + 1
+
+	loadFactor := float64(m.count) / float64(m.bucketSize)
+	fmt.Println("LoadFactor: ", loadFactor)
+	if loadFactor >= 0.8 {
+		distributeLoad(m)
+	}
+}
+
+func distributeLoad(m *HMap) {
+	dataArray := m.bucketArr
+	m.bucketSize = 2 * m.bucketSize
+	m.bucketArr = make([]*MapNode, m.bucketSize)
+	m.count = 0
+	for _, val := range dataArray {
+		if val == nil {
+			continue
+		}
+		head := val
+		for head != nil {
+			m.Insert(head.key, head.value)
+			head = head.next
+		}
+	}
 }
 
 func (m *HMap) Find(key string) (string, bool) {
@@ -78,6 +113,7 @@ func (m *HMap) Delete(key string) bool {
 			} else {
 				prevEle.next = currentHead.next
 			}
+			m.count = m.count - 1
 			return true
 		}
 		prevEle = currentHead
