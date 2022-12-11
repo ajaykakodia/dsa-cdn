@@ -30,5 +30,7 @@ func main() {
 	arr := []int{20, 13, 44, 11, 5, 8, 32, 1, 7, 9}
 	heapSort(arr)
 	fmt.Println("Sorted Array: ", arr)
-
+	arr = []int{20, 13, 44, 11, 5, 8, 32, 1, 7, 9}
+	sm := kSmallestElements(arr, 4)
+	fmt.Println("Smallest 4 Elements: ", sm)
 }
