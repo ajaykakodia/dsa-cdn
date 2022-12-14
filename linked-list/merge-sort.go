@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // mergeSort => sort linked list
 func mergeSort(head *Node) *Node {
 	if head == nil || head.next == nil {

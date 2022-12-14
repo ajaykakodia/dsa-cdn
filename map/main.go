@@ -30,4 +30,5 @@ func main() {
 		val, _ := hm.Find("key" + strconv.Itoa(i))
 		fmt.Println("key"+strconv.Itoa(i)+": ", val)
 	}
+
 }

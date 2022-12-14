@@ -7,26 +7,26 @@ import (
 
 func main() {
 	fmt.Println("We are in triangular patterns")
-	pattern1(5)
+	tpattern1(5)
 	println()
-	pattern2(5)
+	tpattern2(5)
 	println()
-	pattern3(5)
+	tpattern3(5)
 	println()
-	pattern4(4)
+	tpattern4(4)
 
 	println()
-	pattern5(4)
+	tpattern5(4)
 	println()
-	pattern6(4)
+	tpattern6(4)
 	println()
-	pattern7(4)
+	tpattern7(4)
 	println()
-	pattern8(4)
+	tpattern8(4)
 	println()
-	pattern9(4)
+	tpattern9(4)
 	println()
-	pattern10(4)
+	tpattern10(4)
 }
 
 /*
@@ -39,7 +39,7 @@ Print triangle of numbers for a given number i.e
 4 4 4 4
 5 5 5 5 5
 */
-func pattern1(n int) {
+func tpattern1(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= r; c++ {
 			fmt.Print(strconv.Itoa(r) + " ")
@@ -58,7 +58,7 @@ Print triangle of numbers for a given number i.e
 1 2 3 4
 1 2 3 4 5
 */
-func pattern2(n int) {
+func tpattern2(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= r; c++ {
 			fmt.Print(strconv.Itoa(c) + " ")
@@ -77,7 +77,7 @@ Print triangle of numbers for a given number i.e
 7 8 9 10
 11 12 13 14 15
 */
-func pattern3(n int) {
+func tpattern3(n int) {
 	k := 1
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= r; c++ {
@@ -96,7 +96,7 @@ Print triangle of numbers for a given number i.e
 * *
 *
 */
-func pattern4(n int) {
+func tpattern4(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r+1; c++ {
 			fmt.Print("*")
@@ -113,7 +113,7 @@ Print triangle of numbers for a given number i.e
 	  * *
 	* * *
 */
-func pattern5(n int) {
+func tpattern5(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r; c++ {
 			fmt.Print(" ")
@@ -134,7 +134,7 @@ Print triangle of numbers for a given number i.e
 		12321
 	   1234321
 */
-func pattern6(n int) {
+func tpattern6(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r; c++ {
 			fmt.Print(" ")
@@ -158,7 +158,7 @@ Print triangle of numbers for a given number i.e
 		*****
 	   *******
 */
-func pattern7(n int) {
+func tpattern7(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r; c++ {
 			fmt.Print(" ")
@@ -185,7 +185,7 @@ Print triangle of numbers for a given number i.e
 		 121
 		  1
 */
-func pattern8(n int) {
+func tpattern8(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r; c++ {
 			fmt.Print(" ")
@@ -224,7 +224,7 @@ Print triangle of numbers for a given number i.e
 		2   2
 	  1      1
 */
-func pattern9(n int) {
+func tpattern9(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n; c++ {
 			if c == r {
@@ -274,7 +274,7 @@ Print triangle of numbers for a given number i.e
 		 ***
 		  *
 */
-func pattern10(n int) {
+func tpattern10(n int) {
 	for r := 1; r <= n; r++ {
 		for c := 1; c <= n-r; c++ {
 			fmt.Print(" ")
